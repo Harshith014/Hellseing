@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realm of Hell</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+      :root {
+        --primary-color: #1a0a0a;
+        --secondary-color: #8b0000;
+        --text-color: #e6e6e6;
+        --highlight-color: #ff4500;
+      }
+
+      .hellish-landscape {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      }
+
+      .hellish-landscape img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: filter 0.3s ease, transform 0.3s ease;
+      }
+
+      .hellish-landscape:hover img {
+        filter: hue-rotate(30deg) contrast(150%) brightness(80%);
+        transform: scale(1.05);
+      }
+
+      .hellish-landscape::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 0, 0, 0.2);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .hellish-landscape:hover::before {
+        opacity: 1;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .hellish-landscape:hover {
+        animation: pulse 2s infinite;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Playfair Display", serif;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        padding: 50px 0;
+        background: url("https://images.unsplash.com/photo-1478070531059-3db579c041d5?auto=format&fit=crop&w=1200&q=80")
+          no-repeat center center;
+        background-size: cover;
+        position: relative;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      h1 {
+        font-family: "Pirata One", cursive;
+        font-size: 4rem;
+        color: var(--highlight-color);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 1;
+      }
+
+      nav {
+        background-color: var(--secondary-color);
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--highlight-color);
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 40px 0;
+      }
+
+      .content {
+        background-color: rgba(26, 10, 10, 0.8);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+      }
+
+      h2 {
+        font-family: "Pirata One", cursive;
+        font-size: 2.5rem;
+        color: var(--highlight-color);
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+
+      .icon {
+        font-size: 3rem;
+        color: var(--highlight-color);
+        margin-bottom: 20px;
+      }
+
+      .image-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      }
+
+      .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .image-container:hover img {
+        transform: scale(1.05);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px 0;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+      }
+
+      @keyframes flicker {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .flickering {
+        animation: flicker 2s linear infinite;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translate(1px, 1px) rotate(0deg);
+        }
+        10% {
+          transform: translate(-1px, -2px) rotate(-1deg);
+        }
+        20% {
+          transform: translate(-3px, 0px) rotate(1deg);
+        }
+        30% {
+          transform: translate(3px, 2px) rotate(0deg);
+        }
+        40% {
+          transform: translate(1px, -1px) rotate(1deg);
+        }
+        50% {
+          transform: translate(-1px, 2px) rotate(-1deg);
+        }
+        60% {
+          transform: translate(-3px, 1px) rotate(0deg);
+        }
+        70% {
+          transform: translate(3px, 1px) rotate(-1deg);
+        }
+        80% {
+          transform: translate(-1px, -1px) rotate(1deg);
+        }
+        90% {
+          transform: translate(1px, 2px) rotate(0deg);
+        }
+        100% {
+          transform: translate(1px, -2px) rotate(-1deg);
+        }
+      }
+
+      .shaking:hover {
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+      }
+
+      /* Responsive Design */
+
+      @media (max-width: 1200px) {
+        main {
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        .image-container {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+        .image-container {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 20px 0;
+        }
+        h1 {
+          font-size: 3rem;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin-bottom: 10px;
+        }
+        .content {
+          padding: 20px;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+        .icon {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        header {
+          padding: 10px 0;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin-bottom: 10px;
+        }
+        .content {
+          padding: 15px;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+        .icon {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 5px 0;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin-bottom: 10px;
+        }
+        .content {
+          padding: 10px;
+        }
+        h2 {
+          font-size: 1.2rem;
+        }
+        p {
+          font-size: 0.8rem;
+        }
+        .icon {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 320px) {
+        header {
+          padding: 5px 0;
+        }
+        h1 {
+          font-size: 1.2rem;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin-bottom: 10px;
+        }
+        .content {
+          padding: 5px;
+        }
+        h2 {
+          font-size: 1rem;
+        }
+        p {
+          font-size: 0.7rem;
+        }
+        .icon {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Realm of Hell</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/sick.html">Home</a></li>
+        <li><a href="#dark-lord">Dark Lord</a></li>
+        <li><a href="#fallen-angel">Fallen Angel</a></li>
+        <li><a href="#inferno">The Inferno</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <main>
+        <section id="dark-lord" class="content">
+          <i class="fas fa-crown icon flickering"></i>
+          <h2>The Dark Lord</h2>
+          <p>
+            In the depths of the inferno, the Dark Lord reigns supreme. His very
+            presence instills fear and despair in the souls of the damned. With
+            eyes that burn like molten lava and a voice that shakes the very
+            foundations of Hell, he commands legions of demons and tormented
+            spirits.
+          </p>
+          <p>
+            The Dark Lord's power is absolute, his cruelty legendary. It is said
+            that even the bravest warriors tremble at the mere mention of his
+            name, for to face him is to face one's deepest fears and darkest
+            desires.
+          </p>
+        </section>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80"
+            alt="Hellfire"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1604076913837-52ab5629fba9?auto=format&fit=crop&w=600&q=80"
+            alt="Demonic Statue"
+          />
+        </div>
+        <section id="fallen-angel" class="content">
+          <i class="fas fa-dragon icon shaking"></i>
+          <h2>Lucifer, the Fallen Angel</h2>
+          <p>
+            Once the most beautiful of all angels, Lucifer's fall from grace is
+            a tale of tragedy and rebellion. Now, as the Fallen Angel, he
+            embodies both the allure of forbidden knowledge and the consequences
+            of defying divine will.
+          </p>
+          <p>
+            Lucifer's beauty remains, but it is a terrible beauty - corrupted
+            and twisted by the fires of Hell. He whispers promises of power and
+            freedom to those who would listen, tempting the weak and challenging
+            the strong.
+          </p>
+        </section>
+        <section id="inferno" class="content">
+          <i class="fas fa-fire icon flickering"></i>
+          <h2>The Eternal Inferno</h2>
+          <p>
+            Hell stretches endlessly, a landscape of fire and brimstone. Rivers
+            of lava cut through fields of razor-sharp obsidian, while the air is
+            thick with ash and the screams of the damned. Here, time loses all
+            meaning as souls endure eternal torment.
+          </p>
+          <p>
+            In this realm of chaos and suffering, nightmarish creatures roam
+            freely, and the laws of nature bend to the will of the Dark Lord. It
+            is a place of punishment, but also of temptation, where the darkest
+            desires of mortal souls are laid bare.
+          </p>
+        </section>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&w=600&q=80"
+            alt="Hellish Landscape"
+          />
+        </div>
+      </main>
+    </div>
+    <footer>
+      <p>&copy; 2024 Realm of Hell. All rights eternally damned.</p>
+    </footer>
+  </body>
+</html>

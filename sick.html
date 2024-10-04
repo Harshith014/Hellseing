@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HellSeing - Epic Fantasy Adventure</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Sorts+Mill+Goudy&display=swap");
+
+      :root {
+        --primary-color: #f3d9b1;
+        --secondary-color: #2c1e0f;
+        --accent-color: #c41e3a;
+        --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Sorts Mill Goudy", serif;
+        background: url("img/bg.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: var(--primary-color);
+        line-height: 1.6;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+
+      .logo h1 {
+        font-family: "Cinzel", serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        text-shadow: var(--text-shadow);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: calc(100vh - 100px);
+      }
+
+      .hero {
+        flex: 1;
+        max-width: 50%;
+      }
+
+      .hero h2 {
+        font-family: "Cinzel", serif;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: var(--text-shadow);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        text-shadow: var(--text-shadow);
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        text-decoration: none;
+        font-family: "Cinzel", serif;
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #a01a2f;
+        transform: translateY(-3px);
+      }
+
+      .registration-form {
+        flex: 1;
+        max-width: 40%;
+        background: rgba(44, 30, 15, 0.8);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .registration-form h3 {
+        font-family: "Cinzel", serif;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: var(--text-shadow);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(243, 217, 177, 0.1);
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+        color: var(--primary-color);
+        font-family: "Sorts Mill Goudy", serif;
+        font-size: 1rem;
+      }
+
+      .form-group input::placeholder {
+        color: rgba(243, 217, 177, 0.7);
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: 12px;
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        border: none;
+        border-radius: 5px;
+        font-family: "Cinzel", serif;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .submit-button:hover {
+        background-color: #a01a2f;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav ul {
+          margin-top: 20px;
+        }
+
+        nav ul li {
+          margin: 0 10px;
+        }
+
+        main {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .hero,
+        .registration-form {
+          max-width: 100%;
+          margin-bottom: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <img src="img/logo.jpg" alt="HellSeing Logo" />
+          <h1>HellSeing</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/heaven.html">Heaven</a></li>
+            <li><a href="/hell.html">Hell</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section class="hero">
+          <h2>Welcome, Brave Warriors!</h2>
+          <p>
+            Embark on an epic journey through realms unknown, face mythical
+            creatures, and forge your destiny in the world of HellSeing. Are you
+            ready to become a legend?
+          </p>
+          <a href="/heaven.html" class="cta-button">Begin Your Quest</a>
+        </section>
+        <section class="registration-form">
+          <h3>Join the Adventure</h3>
+          <form action="/heaven.html" method="get">
+            <div class="form-group">
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="username"
+                placeholder="Choose a username"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                name="password"
+                placeholder="Create a password"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-button">Register Now</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

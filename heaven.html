@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realm of Heaven</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+      :root {
+        --primary-color: #f0e6d2;
+        --secondary-color: #b3a369;
+        --text-color: #3c3c3c;
+        --highlight-color: #ffdb58;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Cormorant Garamond", serif;
+        background: linear-gradient(135deg, #e6f0ff, #fff5e6);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        padding: 50px 0;
+        background: url("https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80")
+          no-repeat center center;
+        background-size: cover;
+        position: relative;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      h1 {
+        font-size: 4rem;
+        color: var(--secondary-color);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+      }
+
+      nav {
+        background-color: var(--primary-color);
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--highlight-color);
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 40px 0;
+      }
+
+      .content {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+
+      .icon {
+        font-size: 3rem;
+        color: var(--highlight-color);
+        margin-bottom: 20px;
+      }
+
+      .image-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .image-container:hover img {
+        transform: scale(1.05);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px 0;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      /* Responsive Design */
+
+      @media (max-width: 1200px) {
+        main {
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        .image-container {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+        .image-container {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 20px 0;
+        }
+        h1 {
+          font-size: 3rem;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin-bottom: 10px;
+        }
+        .content {
+          padding: 20px;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+        .icon {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        header {
+          padding: 10px 0;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin-bottom: 10px;
+        }
+        .content {
+          padding: 15px;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+        .icon {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 5px 0;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin-bottom: 10px;
+        }
+        .content {
+          padding: 10px;
+        }
+        h2 {
+          font-size: 1.2rem;
+        }
+        p {
+          font-size: 0.8rem;
+        }
+        .icon {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 320px) {
+        header {
+          padding: 5px 0;
+        }
+        h1 {
+          font-size: 1.2rem;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin-bottom: 10px;
+        }
+        .content {
+          padding: 5px;
+        }
+        h2 {
+          font-size: 1rem;
+        }
+        p {
+          font-size: 0.7rem;
+        }
+        .icon {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Realm of Heaven</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/sick.html">Home</a></li>
+        <li><a href="#holy-mother">Holy Mother</a></li>
+        <li><a href="#sinful-god">Sinful God</a></li>
+        <li><a href="#paradise">Paradise</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <main>
+        <section id="holy-mother" class="content">
+          <i class="fas fa-dove icon floating"></i>
+          <h2>The Holy Mother</h2>
+          <p>
+            In the celestial realms, the Holy Mother stands as a beacon of
+            compassion and unconditional love. Her presence fills the heavens
+            with a warm, comforting light that soothes all souls who bask in its
+            glow.
+          </p>
+          <p>
+            Legends speak of her infinite wisdom and the miracles she performs,
+            guiding lost spirits and healing the wounds of the righteous. Her
+            gentle touch is said to bring peace to even the most troubled
+            hearts.
+          </p>
+        </section>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=600&q=80"
+            alt="Heavenly Light"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=600&q=80"
+            alt="Divine Statue"
+          />
+        </div>
+        <section id="sinful-god" class="content">
+          <i class="fas fa-balance-scale icon floating"></i>
+          <h2>The Sinful God</h2>
+          <p>
+            In a twist of cosmic irony, the Sinful God resides in the heart of
+            paradise. This enigmatic deity embodies both the light and shadow of
+            creation, challenging the very notion of absolute good and evil.
+          </p>
+          <p>
+            The Sinful God's presence serves as a reminder that even in the
+            purest of realms, imperfection can exist. It is through this paradox
+            that souls learn the true meaning of forgiveness and redemption.
+          </p>
+        </section>
+        <section id="paradise" class="content">
+          <i class="fas fa-sun icon floating"></i>
+          <h2>The Eternal Paradise</h2>
+          <p>
+            Heaven stretches endlessly, a tapestry of golden clouds and
+            shimmering light. Here, time loses all meaning as souls bask in
+            eternal bliss and harmony. The air is filled with celestial
+            melodies, and the very ground seems to pulse with divine energy.
+          </p>
+          <p>
+            In this realm, all desires are fulfilled, and all pain is forgotten.
+            It is a place of reunion, where loved ones meet again in joyous
+            celebration, free from the burdens of mortal existence.
+          </p>
+        </section>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?auto=format&fit=crop&w=600&q=80"
+            alt="Heavenly Clouds"
+          />
+        </div>
+      </main>
+    </div>
+    <footer>
+      <p>&copy; 2024 Realm of Heaven. All rights ethereal.</p>
+    </footer>
+  </body>
+</html>
